@@ -1,0 +1,32 @@
+version: "3.8"
+
+configs:
+  powerdns-base-config:
+    file: ./pdns.conf
+  powerdns-recursor-config:
+    file: ./recursor.conf
+
+services:
+  powerdns:
+    image: foo
+
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+
+    logging:
+      driver: journald
+      options:
+        tag: powerdns
+
+    configs:
+      - source: powerdns-base-config
+        target: /etc/pdns/pdns.conf
+      - source: powerdns-recursor-config
+        target: /etc/pdns/recursor.conf
+
+#    entrypoint: /bin/sh -c "sleep infinity"
+
+
+
+
