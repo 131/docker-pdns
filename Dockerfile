@@ -13,4 +13,4 @@ RUN mkdir -p /etc/pdns/api.d \
 
 
 ENTRYPOINT ["/bin/sh", "-c", "pdns_server & pdns_recursor & wait %1 %2"]
-
+LABEL "org.opencontainers.image.version"="0.1.1"
