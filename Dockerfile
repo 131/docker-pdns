@@ -3,7 +3,8 @@ FROM alpine:3.13
 RUN apk add --no-cache \
     pdns-recursor \
     pdns \
-    pdns-backend-mysql
+    pdns-backend-mysql \
+    pdns-backend-sqlite3
 
 
 RUN mkdir -p /etc/pdns/api.d \
